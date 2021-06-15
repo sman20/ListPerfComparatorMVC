@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ListPerfComparator: test results</title>
+</head>
+<body>
+
+<h4>List Performance Comparator</h4>
+
+<table style="show" border="true">
+    <caption>Test configuration</caption>
+    <thead>
+    <tr align="center">
+        <th>Operation under test</th>
+        <th>Number of elements</th>
+        <th>Min value</th>
+        <th>Max value</th>
+        <th>Number of test cycles</th>
+    </tr>
+    </thead>
+<!--    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Instrument</th>
+    </tr>
+    </tfoot>-->
+    <tbody>
+    <tr align="center">
+        <td><p th:text="${testcfg.getOperation()}">VALUE</p></td>
+        <td><p th:text="${testcfg.getSize()}">VALUE</p></td>
+        <td><p th:text="${testcfg.getMin()}">VALUE</p></td>
+        <td><p th:text="${testcfg.getMax()}">VALUE</p></td>
+        <td><p th:text="${testcfg.getTests()}">VALUE</p></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<form th:method="GET" th:action="@{/edit}">
+    <input type="submit" value="Edit test parameters"/>
+</form>
+<br>
+<table border="true">
+    <caption>Test results</caption>
+    <thead>
+    <tr align="center">
+        <th>List type under test</th>
+        <th>Thread 1 time, ms</th>
+        <th>Thread 2 time, ms</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr align="center">
+        <td><p th:text="${testresults.getList1Name()}">VALUE</p></td>
+        <td><p th:text="${testresults.getList1Thread1Time()}">VALUE</p></td>
+        <td><p th:text="${testresults.getList1Thread2Time()}">VALUE</p></td>
+    </tr>
+    <tr align="center">
+        <td><p th:text="${testresults.getList2Name()}">VALUE</p></td>
+        <td><p th:text="${testresults.getList2Thread1Time()}">VALUE</p></td>
+        <td><p th:text="${testresults.getList2Thread2Time()}">VALUE</p></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<form th:method="GET" th:action="@{/results}">
+    <input type="submit" value="Test again!"/>
+</form>
+<hr>
+<form th:method="GET" th:action="@{/start}">
+    <input type="submit" value="Back"/>
+</form>
+
+</body>
+</html>

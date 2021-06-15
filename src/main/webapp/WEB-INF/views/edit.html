@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ListPerfComparator: edit test parameters</title>
+</head>
+<body>
+<h3>List Performance Comparator</h3>
+
+<p>Supported List types:</p>
+<ul>
+    <li>CopyOnWriteArrayList</li>
+    <li>SynchronizedRandomAccessList</li>
+    <li>ArrayList</li>
+    <li>LinkedList</li>
+</ul>
+
+<p>Supported List Operations:</p>
+<ul>
+    <li>READ</li>
+    <li>ADD</li>
+</ul>
+
+<form th:method="PATCH" th:action="@{/start}" th:object="${testcfg}">
+
+    <label for="name1">Type of List 1: </label>
+    <input type="text" th:field="*{name1}" id="name1"/>
+    <br/>
+    <label for="name2">Type of List 2: </label>
+    <input type="text" th:field="*{name2}" id="name2"/>
+    <br/>
+    <label for="size">Number of elements: </label>
+    <input type="text" th:field="*{size}" id="size"/>
+    <br/>
+    <label for="min">Min element value: </label>
+    <input type="text" th:field="*{min}" id="min"/>
+    <br/>
+    <label for="max">Max element value: </label>
+    <input type="text" th:field="*{max}" id="max"/>
+    <br/>
+    <label for="operation">Operation to perform: </label>
+    <input type="text" th:field="*{operation}" id="operation"/>
+    <br/>
+    <label for="tests">Number of test cycles: </label>
+    <input type="text" th:field="*{tests}" id="tests"/>
+    <hr/>
+    <input type="submit" value="Save new test configuration!">
+</form>
+<br/>
+<form th:method="GET" th:action="@{/start}">
+    <input type="submit" value="Cancel"/>
+</form>
+
+</body>
+</html>

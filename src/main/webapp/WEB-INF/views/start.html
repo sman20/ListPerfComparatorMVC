@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ListPerfComparator: start</title>
+</head>
+<body>
+<h4>List Performance Comparator</h4>
+
+<p>Current parameters for the test</p>
+
+<p th:text="${'Type of List 1: ' + testcfg.getName1() + ' [' + testcfg.getList1() + ']'}">VALUE</p>
+<p th:text="${'Type of List 2: ' + testcfg.getName2() + ' [' + testcfg.getList2() + ']'}">VALUE</p>
+<p th:text="${'Number of elements: ' + testcfg.getSize()}">VALUE</p>
+<p th:text="${'Min value of elements: ' + testcfg.getMin()}">VALUE</p>
+<p th:text="${'Max value of elements: ' + testcfg.getMax()}">VALUE</p>
+<p th:text="${'Operation on Lists: ' + testcfg.getOperation()}">VALUE</p>
+<p th:text="${'Number of test cycles: ' + testcfg.getTests()}">VALUE</p>
+
+<form th:method="GET" th:action="@{/edit}">
+    <input type="submit" value="Edit test parameters"/>
+</form>
+<hr/>
+<form th:method="GET" th:action="@{/results}">
+    <input type="submit" value="Test performance!"/>
+</form>
+
+</body>
+</html>
